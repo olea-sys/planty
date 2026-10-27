@@ -162,37 +162,51 @@ textarea {
 
 /* Feuillage gauche. */
 .planty-hero-visual .planty-hero-leaf-left {
-    /* Aligner le bloc sur le bord gauche de la grille. */
-    justify-self: start;
+    /* Prendre le centre du visuel comme point de départ. */
+    justify-self: center;
+    align-self: center;
 
-    /* Occuper 52 % de la largeur totale du visuel. */
-    width: 52%;
+    /* Conserver la taille réduite du feuillage. */
+    width: 42%;
 
-    /* Placer le feuillage derrière la canette. */
+    /* Décaler le feuillage vers la gauche.
+       Le pourcentage est calculé sur sa propre largeur :
+       sa tige reste ainsi derrière la canette. */
+    transform: translateX(-47%);
+
+    /* Conserver le feuillage derrière la canette. */
     z-index: 0;
 }
 
 /* Feuillage droit. */
 .planty-hero-visual .planty-hero-leaf-right {
-    /* Aligner le bloc sur le bord droit de la grille. */
-    justify-self: end;
+    /* Utiliser le même point de départ central. */
+    justify-self: center;
+    align-self: center;
 
-    /* Utiliser la même largeur que le feuillage gauche. */
-    width: 52%;
+    /* Garder la même taille que le feuillage gauche. */
+    width: 42%;
 
-    /* Placer le feuillage derrière la canette. */
+    /* Appliquer le décalage symétrique vers la droite. */
+    transform: translateX(46%);
+
+    /* Conserver le feuillage derrière la canette. */
     z-index: 0;
 }
 
-/* Canette centrale. */
+/* Canette centrale : rétablir sa taille et sa superposition. */
 .planty-hero-visual .planty-hero-can {
-    /* Centrer horizontalement le bloc dans la grille. */
+    /* Centrer le bloc dans la cellule de grille. */
     justify-self: center;
+    align-self: center;
 
-    /* Occuper 40 % de la largeur totale du visuel. */
+    /* Limiter le fichier à 40 % du visuel complet :
+       300 px lorsque le conteneur mesure 750 px.
+       Les marges transparentes font partie de cette largeur. */
     width: 40%;
 
-    /* Afficher la canette devant les feuillages. */
+    /* Afficher la canette devant les feuillages,
+       dont le z-index est fixé à 0. */
     z-index: 1;
 }
 
