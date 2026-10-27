@@ -7,4 +7,209 @@ Version: 1.0.0
 Text Domain: planty
 */
 
-/* Styles personnalisés */
+/* ==================================================
+   POLICE LOCALE
+   ================================================== */
+
+/* Appliquer Syne au site.
+   Arial sert de remplacement si le chargement échoue. */
+body {
+    font-family: "Syne", Arial, sans-serif;
+}
+
+/* Appliquer également la police aux éléments de formulaire. */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Faire hériter les champs et boutons de la police du site. */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* ==================================================
+   ACCUEIL — PREMIÈRE SECTION
+   ================================================== */
+
+/* Inclure les bordures et les espacements intérieurs
+   dans les dimensions des éléments de cette section. */
+.planty-hero,
+.planty-hero * {
+    box-sizing: border-box;
+}
+
+/* Groupe principal contenant le titre et le visuel. */
+.planty-hero {
+    /* Espacement intérieur : haut, côtés, bas. */
+    padding: 80px 20px 40px;
+
+    /* Fond beige de la section. */
+    background-color: #ece2da;
+
+    /* Centrer le texte. */
+    text-align: center;
+
+    /* Dessiner le liseré sous la section. */
+    border-bottom: 8px solid #e3d9d0;
+
+    /* Arrondir les deux coins inférieurs.
+       Les valeurs après "/" règlent la hauteur de la courbe. */
+    border-radius: 0 0 50% 50% / 0 0 5% 5%;
+}
+
+/* Titre principal de la section. */
+.planty-hero h1 {
+    /* Limiter la largeur du titre sur ordinateur. */
+    max-width: 850px;
+
+    /* Centrer le titre et laisser de l'espace en dessous. */
+    margin: 0 auto 40px;
+
+    /* Appliquer explicitement la police au titre,
+       même si le thème parent définit une autre police. */
+    font-family: "Syne", Arial, sans-serif;
+
+    /* Couleur verte du texte. */
+    color: #3b8e46;
+
+    /* Adapter la taille à l'écran :
+       minimum 28 px, valeur souple, maximum 38 px
+       lorsque la taille de base du navigateur est 16 px. */
+    font-size: clamp(1.75rem, 3vw, 2.375rem);
+
+    /* Utiliser la graisse la plus forte de Syne. */
+    font-weight: 800;
+
+    /* Régler l'espacement entre les lignes. */
+    line-height: 1.2;
+
+    /* Afficher le titre en majuscules. */
+    text-transform: uppercase;
+
+    /* Autoriser la coupure d'un mot trop long
+       si cela est nécessaire sur un petit écran. */
+    overflow-wrap: break-word;
+}
+
+/* ==================================================
+   VISUEL — CANETTE ET FEUILLAGES
+   ================================================== */
+
+/* Groupe contenant les trois blocs Image. */
+.planty-hero .planty-hero-visual {
+    /* S'adapter à la largeur disponible. */
+    width: 100%;
+
+    /* Limiter la largeur totale sur ordinateur.
+       Cette valeur pourra être ajustée selon le rendu. */
+    max-width: 750px;
+
+    /* Centrer l'ensemble horizontalement. */
+    margin: 0 auto;
+}
+
+/* Dans ta page, Gutenberg ajoute ce conteneur
+   entre le groupe et les trois blocs Image.
+   La grille doit donc être appliquée à ce conteneur. */
+.planty-hero-visual > .wp-block-group__inner-container {
+    /* Activer la disposition en grille. */
+    display: grid;
+
+    /* Créer une colonne pouvant rétrécir sur mobile. */
+    grid-template-columns: minmax(0, 1fr);
+
+    /* Centrer verticalement les trois images. */
+    align-items: center;
+
+    /* Garder leur ordre de superposition
+       indépendant des autres éléments de la page. */
+    isolation: isolate;
+}
+
+/* Règles communes aux trois blocs Image. */
+.planty-hero-visual > .wp-block-group__inner-container > .wp-block-image {
+    /* Superposer les trois blocs dans la même cellule. */
+    grid-area: 1 / 1;
+
+    /* Autoriser les blocs à rétrécir. */
+    min-width: 0;
+
+    /* Remplacer les marges automatiques de Gutenberg,
+       elles-mêmes déclarées avec !important. */
+    margin: 0 !important;
+}
+
+/* Fichiers image à l'intérieur des blocs. */
+.planty-hero-visual .wp-block-image img {
+    /* Supprimer l'espace réservé sous les images en ligne. */
+    display: block;
+
+    /* Remplir la largeur attribuée au bloc Image. */
+    width: 100%;
+
+    /* Empêcher l'image de dépasser son bloc. */
+    max-width: 100%;
+
+    /* Conserver les proportions d'origine. */
+    height: auto;
+}
+
+/* Feuillage gauche. */
+.planty-hero-visual .planty-hero-leaf-left {
+    /* Aligner le bloc sur le bord gauche de la grille. */
+    justify-self: start;
+
+    /* Occuper 52 % de la largeur totale du visuel. */
+    width: 52%;
+
+    /* Placer le feuillage derrière la canette. */
+    z-index: 0;
+}
+
+/* Feuillage droit. */
+.planty-hero-visual .planty-hero-leaf-right {
+    /* Aligner le bloc sur le bord droit de la grille. */
+    justify-self: end;
+
+    /* Utiliser la même largeur que le feuillage gauche. */
+    width: 52%;
+
+    /* Placer le feuillage derrière la canette. */
+    z-index: 0;
+}
+
+/* Canette centrale. */
+.planty-hero-visual .planty-hero-can {
+    /* Centrer horizontalement le bloc dans la grille. */
+    justify-self: center;
+
+    /* Occuper 40 % de la largeur totale du visuel. */
+    width: 40%;
+
+    /* Afficher la canette devant les feuillages. */
+    z-index: 1;
+}
+
+/* ==================================================
+   ADAPTATION AUX PETITS ÉCRANS
+   ================================================== */
+
+/* Appliquer ces ajustements jusqu'à 600 px de large.
+   Les images rétrécissent déjà grâce aux pourcentages. */
+@media (max-width: 600px) {
+    .planty-hero {
+        /* Réduire les espacements sur téléphone. */
+        padding: 48px 16px 32px;
+    }
+
+    .planty-hero h1 {
+        /* Rapprocher légèrement le visuel du titre. */
+        margin-bottom: 28px;
+    }
+}
