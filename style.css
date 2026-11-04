@@ -33,6 +33,273 @@ textarea {
     font: inherit;
 }
 
+/* Retirer la marge que le navigateur ajoute autour de la page. */
+body {
+    margin: 0;
+}
+
+/* Inclure les bordures et espacements dans les dimensions du header/footer. */
+.planty-site-header,
+.planty-site-header *,
+.planty-site-footer,
+.planty-site-footer * {
+    box-sizing: border-box;
+}
+
+/* Laisser les sections Gutenberg occuper toute la largeur du site. */
+#wrapper,
+#container,
+.planty-main-content {
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==================================================
+   HEADER — LOGO ET NAVIGATION
+   ================================================== */
+
+.planty-site-header {
+    /* Placer le logo à gauche et la navigation à droite. */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Conserver une hauteur de 80 px, extensible si nécessaire. */
+    min-height: 80px;
+
+    /* Appliquer le fond et la police du site. */
+    background-color: #ffffff;
+    font-family: "Syne", Arial, sans-serif;
+}
+
+.planty-brand {
+    /* Espacer le logo des bords, en gardant un espace à droite. */
+    padding: 20px 30px 20px 37px;
+}
+
+.planty-brand .custom-logo-link {
+    /* Supprimer les espaces de ligne autour du logo. */
+    display: block;
+    line-height: 0;
+}
+
+.planty-brand .custom-logo {
+    /* Afficher le logo à environ 201 px sans le déformer. */
+    display: block;
+    width: 201px;
+    max-width: 100%;
+    height: auto;
+}
+
+.planty-brand-name {
+    /* Prévoir une présentation lisible avant la sélection du logo. */
+    color: #3b8e46;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.planty-main-menu {
+    /* Disposer les liens dans l'ordre configuré dans WordPress. */
+    display: flex;
+    align-items: stretch;
+
+    /* Retirer les puces et les espacements par défaut d'une liste. */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.planty-main-menu > li {
+    /* Retirer les espacements éventuels autour des éléments du menu. */
+    margin: 0;
+    padding: 0;
+}
+
+.planty-main-menu > li > a {
+    /* Centrer le texte et rendre toute la surface du lien cliquable. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    padding: 16px 30px;
+
+    /* Définir les liens ordinaires de la navigation. */
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.planty-main-menu > .current-menu-item > a {
+    /* Identifier la page courante sans changer l'ordre des liens. */
+    font-weight: 700;
+}
+
+.planty-main-menu > .planty-menu-order > a {
+    /* Donner au lien Commander sa largeur et son fond rose. */
+    min-width: 236px;
+    background-color: #e0b9b4;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.planty-main-menu > li:not(.planty-menu-order) > a:hover,
+.planty-footer-menu a:hover {
+    /* Signaler le survol des liens textuels. */
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.planty-main-menu > .planty-menu-order > a:hover {
+    /* Signaler le survol du bouton Commander. */
+    background-color: #c02e44;
+}
+
+.planty-site-header a:focus-visible,
+.planty-site-footer a:focus-visible {
+    /* Rendre visibles les liens sélectionnés au clavier. */
+    outline: 3px solid #245c2b;
+    outline-offset: -4px;
+}
+
+/* ==================================================
+   FOOTER — FRISE ET MENTIONS LÉGALES
+   ================================================== */
+
+.planty-site-footer {
+    /* Séparer les styles du footer de ceux du contenu des pages. */
+    background-color: #ffffff;
+    font-family: "Syne", Arial, sans-serif;
+}
+
+.planty-footer-frieze {
+    /* Reprendre le fond blanc sous les avis de la page d'accueil. */
+    background-color: #ffffff;
+}
+
+.planty-footer-frieze--beige {
+    /* Prolonger le fond de la page Nous rencontrer. */
+    background-color: #ece2da;
+}
+
+.planty-footer-frieze-image {
+    /* Retirer l'espace sous l'image et occuper toute la largeur. */
+    display: block;
+    width: 100%;
+
+    /* Garder des canettes visibles sur mobile et limiter la hauteur sur PC. */
+    height: clamp(90px, 11.3vw, 162px);
+
+    /* Recadrer les côtés sur mobile sans déformer les canettes,
+       en gardant l'alignement sur le bas de l'image. */
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+.planty-footer-menu {
+    /* Centrer les liens et autoriser leur retour à la ligne si nécessaire. */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 24px;
+
+    /* Définir l'espace du footer et retirer les puces. */
+    list-style: none;
+    min-height: 60px;
+    margin: 0;
+    padding: 16px 20px;
+}
+
+.planty-footer-menu li {
+    /* Retirer les marges par défaut des éléments de liste. */
+    margin: 0;
+    padding: 0;
+}
+
+.planty-footer-menu a {
+    /* Présenter le lien Mentions légales sans soulignement permanent. */
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+/* ==================================================
+   ACCÈS AU CONTENU AU CLAVIER
+   ================================================== */
+
+.screen-reader-text:not(:focus) {
+    /* Masquer visuellement les textes d'assistance, tout en les laissant
+       accessibles aux lecteurs d'écran. Le focus les rend disponibles. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link:focus {
+    /* Afficher le lien d'accès au contenu ajouté par BlankSlate
+       lorsque l'utilisateur commence à naviguer au clavier. */
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100000;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    color: #245c2b;
+    outline: 3px solid #245c2b;
+}
+
+/* ==================================================
+   HEADER — ADAPTATION AUX PETITS ÉCRANS
+   ================================================== */
+
+@media (max-width: 800px) {
+    .planty-site-header {
+        /* Placer le logo au-dessus du menu, sans JavaScript ni menu caché. */
+        flex-direction: column;
+    }
+
+    .planty-brand {
+        /* Centrer le logo dans sa propre ligne. */
+        padding: 24px 20px;
+    }
+
+    .planty-main-nav {
+        /* Donner toute la largeur disponible à la navigation. */
+        width: 100%;
+    }
+
+    .planty-main-menu > li {
+        /* Répartir l'espace entre les deux ou trois liens présents. */
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .planty-main-menu > li > a {
+        /* Conserver une zone cliquable confortable et autoriser
+           « Nous rencontrer » à revenir sur deux lignes. */
+        min-height: 60px;
+        padding: 12px 8px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .planty-main-menu > .planty-menu-order > a {
+        /* Annuler la largeur minimale prévue pour l'ordinateur. */
+        min-width: 0;
+    }
+}
+
 /* ==================================================
    ACCUEIL — PREMIÈRE SECTION
    ================================================== */
@@ -114,8 +381,7 @@ textarea {
     margin: 0 auto;
 }
 
-/* Dans ta page, Gutenberg ajoute ce conteneur
-   entre le groupe et les trois blocs Image.
+/* conteneur entre le groupe et les trois blocs Image.
    La grille doit donc être appliquée à ce conteneur. */
 .planty-hero-visual > .wp-block-group__inner-container {
     /* Activer la disposition en grille. */
@@ -225,5 +491,498 @@ textarea {
     .planty-hero h1 {
         /* Rapprocher légèrement le visuel du titre. */
         margin-bottom: 28px;
+    }
+}
+
+
+/* ==================================================
+   ACCUEIL — L'ÉNERGIE DES PLANTES
+   ================================================== */
+
+/* Section de présentation de la boisson. */
+.planty-intro {
+    /* Inclure les espacements dans les dimensions. */
+    box-sizing: border-box;
+
+    /* Espacement intérieur : haut, côtés, bas. */
+    padding: 60px 20px 80px;
+
+    /* Fond blanc entre les deux sections beiges. */
+    background-color: #ffffff;
+
+    /* Centrer le titre et le texte. */
+    text-align: center;
+}
+
+/* Titre secondaire de la section. */
+.planty-intro h2 {
+    /* Retirer les marges par défaut
+       et laisser un espace sous le titre. */
+    margin: 0 0 28px;
+
+    /* Utiliser la police déjà chargée sur le site. */
+    font-family: "Syne", Arial, sans-serif;
+
+    /* Couleur verte du titre. */
+    color: #3b8e46;
+
+    /* Adapter la taille entre 26 et 30 px
+       avec une taille de base du navigateur de 16 px. */
+    font-size: clamp(1.625rem, 2.5vw, 1.875rem);
+
+    /* Appliquer une graisse soutenue. */
+    font-weight: 700;
+
+    /* Garder les lignes lisibles sur petit écran. */
+    line-height: 1.3;
+}
+
+/* Texte de présentation. */
+.planty-intro p {
+    /* Limiter la longueur des lignes sur ordinateur.
+       Cette valeur pourra être affinée avec la maquette. */
+    max-width: 500px;
+
+    /* Centrer le paragraphe et retirer
+       ses marges verticales par défaut. */
+    margin: 0 auto;
+
+    /* Utiliser une couleur sombre sur fond blanc. */
+    color: #000000;
+
+    /* Définir la taille et la graisse du texte. */
+    font-size: 1.25rem;
+    font-weight: 400;
+
+    /* Espacer les lignes pour faciliter la lecture. */
+    line-height: 1.5;
+
+    /* Éviter le débordement d'un mot trop long. */
+    overflow-wrap: break-word;
+}
+
+/* Ajustements pour les téléphones. */
+@media (max-width: 600px) {
+    .planty-intro {
+        /* Réduire les espaces autour du contenu. */
+        padding: 40px 20px 48px;
+    }
+
+    .planty-intro h2 {
+        /* Réduire l'espace entre le titre et le texte. */
+        margin-bottom: 20px;
+    }
+
+    .planty-intro p {
+        /* Réduire légèrement le texte sur mobile. */
+        font-size: 1.125rem;
+    }
+}
+
+/* ==================================================
+   ACCUEIL — LES GOÛTS
+   ================================================== */
+
+/* Inclure les espacements et bordures dans les dimensions
+   de tous les éléments de cette section. */
+.planty-flavors,
+.planty-flavors * {
+    box-sizing: border-box;
+}
+
+/* Section contenant les saveurs et le bouton. */
+.planty-flavors {
+    /* Espacement intérieur : haut, côtés, bas. */
+    padding: 60px 20px 40px;
+
+    /* Reprendre le fond beige de la première section. */
+    background-color: #ece2da;
+
+    /* Centrer les textes de la section. */
+    text-align: center;
+
+    /* Dessiner une courbe discrète au bas de la section. */
+    border-radius: 0 0 50% 50% / 0 0 2% 2%;
+}
+
+/* Titre « Les goûts ». */
+.planty-flavors h2 {
+    /* Retirer les marges par défaut et espacer le paragraphe. */
+    margin: 0 0 12px;
+
+    /* Utiliser la police Syne déjà chargée sur le site. */
+    font-family: inherit;
+
+    /* Appliquer la couleur saumon et une graisse forte. */
+    color: #d2776a;
+    font-weight: 800;
+
+    /* Adapter la taille du titre à la largeur de l'écran. */
+    font-size: clamp(1.625rem, 3vw, 1.875rem);
+
+    /* Régler l'interligne et afficher le texte en majuscules. */
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Phrase située sous le titre. */
+.planty-flavors .planty-flavors-description {
+    /* Limiter la longueur des lignes et centrer le paragraphe. */
+    max-width: 800px;
+    margin: 0 auto 40px;
+
+    /* Définir la couleur, la taille et l'interligne du texte. */
+    color: #000000;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* Groupe réunissant les quatre bannières. */
+.planty-flavors .planty-flavors-grid {
+    /* S'adapter à l'écran sans dépasser la largeur prévue :
+       deux cartes de 393 px et un espace de 30 px. */
+    width: 100%;
+    max-width: 816px;
+
+    /* Centrer le groupe dans la section. */
+    margin: 0 auto;
+}
+
+/* Appliquer la grille au conteneur intermédiaire Gutenberg,
+   qui contient directement les quatre bannières. */
+.planty-flavors-grid > .wp-block-group__inner-container {
+    /* Créer deux colonnes de même largeur.
+       Le minimum à zéro évite les débordements du contenu. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    /* Espacer les lignes de 40 px et les colonnes de 30 px. */
+    gap: 40px 30px;
+}
+
+/* Cartes représentant les saveurs. */
+.planty-flavors .planty-flavor {
+    /* Autoriser les cartes à rétrécir dans la grille. */
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+
+    /* Remplacer les marges automatiques de Gutenberg,
+       elles-mêmes déclarées avec !important. */
+    margin: 0 !important;
+
+    /* Neutraliser la hauteur minimale des bannières,
+       y compris lorsqu'elle est définie directement
+       dans les réglages Gutenberg. */
+    min-height: 0 !important;
+
+    /* Conserver les proportions des cartes de la maquette. */
+    aspect-ratio: 393 / 263;
+
+    /* Garder un espace entre le texte et les bords. */
+    padding: 16px;
+}
+
+/* Images de fond des bannières. */
+.planty-flavor .wp-block-cover__image-background {
+    /* Remplir toute la carte. */
+    width: 100%;
+    height: 100%;
+
+    /* Recadrer l'image sans la déformer. */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Conteneur du texte à l'intérieur des bannières. */
+.planty-flavor .wp-block-cover__inner-container {
+    /* Permettre au contenu de rétrécir avec la carte. */
+    min-width: 0;
+    width: 100%;
+}
+
+/* Noms des saveurs. */
+.planty-flavor h3 {
+    /* Retirer les marges par défaut du titre. */
+    margin: 0;
+
+    /* Utiliser Syne en blanc avec une graisse forte. */
+    font-family: inherit;
+    color: #ffffff;
+    font-weight: 800;
+
+    /* Adapter la taille entre 28 et 48 px
+       avec une taille de base du navigateur de 16 px. */
+    font-size: clamp(1.75rem, 4vw, 3rem);
+
+    /* Rapprocher les lignes des noms coupés en deux. */
+    line-height: 1.05;
+
+    /* Centrer les noms et les afficher en majuscules. */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Groupe contenant le bouton Commander. */
+.planty-flavors .planty-flavors-actions {
+    /* Centrer le bouton et l'écarter des cartes. */
+    justify-content: center;
+    margin: 40px 0 0;
+}
+
+/* Lien présenté comme un bouton par Gutenberg. */
+.planty-flavors-actions .wp-block-button__link {
+    /* Prévoir un bouton de 198 px, sans dépasser l'écran. */
+    width: 198px;
+    max-width: 100%;
+
+    /* Définir les espacements intérieurs. */
+    padding: 18px 24px;
+
+    /* Appliquer le fond rose et le texte blanc. */
+    background-color: #e0b9b4;
+    color: #ffffff;
+
+    /* Arrondir légèrement les coins et retirer le soulignement. */
+    border-radius: 5px;
+    text-decoration: none;
+
+    /* Régler la police et la hauteur du texte. */
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+/* Modifier la couleur lorsque la souris survole le bouton. */
+.planty-flavors-actions .wp-block-button__link:hover {
+    background-color: #c02e44;
+}
+
+/* Rendre le bouton repérable lors de la navigation au clavier. */
+.planty-flavors-actions .wp-block-button__link:focus-visible {
+    outline: 3px solid #245c2b;
+    outline-offset: 4px;
+}
+
+/* ==================================================
+   LES GOÛTS — ADAPTATION MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+    /* Réduire les espacements de la section. */
+    .planty-flavors {
+        padding: 40px 20px 32px;
+    }
+
+    /* Réduire la taille du paragraphe sur téléphone. */
+    .planty-flavors .planty-flavors-description {
+        font-size: 1.125rem;
+    }
+
+    /* Afficher les cartes sur une seule colonne
+       pour conserver des images et des textes lisibles. */
+    .planty-flavors-grid > .wp-block-group__inner-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    /* Rapprocher le bouton de la dernière carte. */
+    .planty-flavors .planty-flavors-actions {
+        margin-top: 28px;
+    }
+}
+
+/* ==================================================
+   ACCUEIL — AVIS CLIENTS
+   ================================================== */
+
+/* Inclure les espacements et bordures dans les dimensions
+   de tous les éléments de cette section. */
+.planty-reviews,
+.planty-reviews * {
+    box-sizing: border-box;
+}
+
+/* Section contenant le titre et les trois témoignages. */
+.planty-reviews {
+    /* Espacement intérieur : haut, côtés, bas.
+       L'espace inférieur précédera la frise du footer. */
+    padding: 120px 20px;
+
+    /* Fond blanc de la section. */
+    background-color: #ffffff;
+
+    /* Utiliser Syne, déjà chargée sur le site. */
+    font-family: "Syne", Arial, sans-serif;
+}
+
+/* Titre principal de la section. */
+.planty-reviews h2 {
+    /* Centrer le titre et l'espacer des témoignages. */
+    margin: 0 auto 80px;
+    text-align: center;
+
+    /* Appliquer le vert et la graisse de la maquette. */
+    color: #3b8e46;
+    font-weight: 800;
+
+    /* Adapter la taille du titre à l'écran. */
+    font-size: clamp(1.625rem, 3vw, 1.875rem);
+
+    /* Régler l'interligne et afficher les majuscules. */
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Groupe réunissant les trois témoignages. */
+.planty-reviews .planty-reviews-grid {
+    /* Utiliser la largeur disponible, jusqu'à 1180 px. */
+    width: 100%;
+    max-width: 1180px;
+
+    /* Centrer l'ensemble dans la page. */
+    margin: 0 auto;
+}
+
+/* Conteneur intermédiaire ajouté par Gutenberg. */
+.planty-reviews-grid > .wp-block-group__inner-container {
+    /* Afficher les témoignages sur trois colonnes égales. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* Espacer les témoignages horizontalement. */
+    gap: 40px;
+}
+
+/* Groupe correspondant à un seul témoignage. */
+.planty-reviews .planty-review {
+    /* Permettre au contenu de rétrécir dans la grille. */
+    min-width: 0;
+
+    /* Remplacer les marges automatiques de Gutenberg,
+       elles-mêmes déclarées avec !important. */
+    margin: 0 !important;
+}
+
+/* Conteneur du portrait et du texte d'un témoignage. */
+.planty-review > .wp-block-group__inner-container {
+    /* Placer le portrait et le texte côte à côte. */
+    display: flex;
+
+    /* Centrer le texte verticalement à côté du portrait. */
+    align-items: center;
+
+    /* Espacer le portrait et le texte. */
+    gap: 22px;
+}
+
+/* Bloc Image contenant le portrait en forme de P. */
+.planty-reviews .planty-review-photo {
+    /* Réserver une largeur de 126 px au portrait,
+       sans l'étirer ni le laisser rétrécir. */
+    flex: 0 0 126px;
+    width: 126px;
+
+    /* Supprimer les marges de Gutenberg. */
+    margin: 0 !important;
+}
+
+/* Fichier image du portrait. */
+.planty-review-photo img {
+    /* Supprimer l'espace sous les images en ligne. */
+    display: block;
+
+    /* Adapter l'image à la largeur du bloc
+       tout en conservant ses proportions. */
+    width: 100%;
+    height: auto;
+}
+
+/* Groupe contenant le nom et l'avis. */
+.planty-reviews .planty-review-copy {
+    /* Occuper la place restante à côté du portrait. */
+    flex: 1;
+
+    /* Autoriser le texte à revenir à la ligne. */
+    min-width: 0;
+
+    /* Retirer les marges automatiques du groupe. */
+    margin: 0 !important;
+
+    /* Aligner le texte à gauche. */
+    text-align: left;
+}
+
+/* Prénom de la personne. */
+.planty-review-copy h3 {
+    /* Retirer les marges par défaut
+       et laisser un petit espace sous le prénom. */
+    margin: 0 0 10px;
+
+    /* Appliquer la couleur et la typographie du prénom. */
+    color: #3b8e46;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Texte de l'avis. */
+.planty-review-copy p {
+    /* Retirer les marges par défaut du paragraphe. */
+    margin: 0;
+
+    /* Régler la couleur, la taille et l'interligne. */
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.4;
+
+    /* Éviter qu'un mot trop long fasse déborder la carte. */
+    overflow-wrap: break-word;
+}
+
+/* ==================================================
+   AVIS CLIENTS — TABLETTES ET TÉLÉPHONES
+   ================================================== */
+
+@media (max-width: 1000px) {
+    /* Limiter la largeur des avis lorsqu'ils sont empilés. */
+    .planty-reviews .planty-reviews-grid {
+        max-width: 480px;
+    }
+
+    /* Afficher un témoignage par ligne
+       pour conserver assez de place pour son texte. */
+    .planty-reviews-grid > .wp-block-group__inner-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Réduire les espaces autour de la section. */
+    .planty-reviews {
+        padding: 60px 20px;
+    }
+
+    /* Rapprocher le titre des témoignages. */
+    .planty-reviews h2 {
+        margin-bottom: 40px;
+    }
+
+    /* Réduire l'espace entre chaque portrait et son texte. */
+    .planty-review > .wp-block-group__inner-container {
+        gap: 16px;
+    }
+
+    /* Réduire les portraits pour préserver
+       la lisibilité du texte sur un écran de 320 px. */
+    .planty-reviews .planty-review-photo {
+        flex-basis: 96px;
+        width: 96px;
+    }
+
+    /* Réduire légèrement les prénoms sur téléphone. */
+    .planty-review-copy h3 {
+        font-size: 1.625rem;
     }
 }
