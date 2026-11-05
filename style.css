@@ -185,18 +185,27 @@ body {
     background-color: #ece2da;
 }
 
+/* Frise du footer sur ordinateur et tablette. */
 .planty-footer-frieze-image {
-    /* Retirer l'espace sous l'image et occuper toute la largeur. */
+    /* Supprimer l'espace sous l'image et remplir la largeur. */
     display: block;
     width: 100%;
 
-    /* Garder des canettes visibles sur mobile et limiter la hauteur sur PC. */
-    height: clamp(90px, 11.3vw, 162px);
+    /* Adapter la hauteur aux proportions du fichier :
+       les canettes restent entières, même sur grand écran. */
+    height: auto;
+}
 
-    /* Recadrer les côtés sur mobile sans déformer les canettes,
-       en gardant l'alignement sur le bas de l'image. */
-    object-fit: cover;
-    object-position: center bottom;
+/* Conserver une frise suffisamment haute sur téléphone. */
+@media (max-width: 780px) {
+    .planty-footer-frieze-image {
+        /* Garder les canettes visibles sur les petits écrans. */
+        height: 90px;
+
+        /* Recadrer les côtés sans déformer les canettes. */
+        object-fit: cover;
+        object-position: center bottom;
+    }
 }
 
 .planty-footer-menu {
