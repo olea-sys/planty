@@ -986,3 +986,590 @@ body {
         font-size: 1.625rem;
     }
 }
+
+/* ==================================================
+   NOUS RENCONTRER — PRÉSENTATION
+   ================================================== */
+
+/* Inclure les espacements et bordures dans les dimensions
+   de tous les éléments de cette section. */
+.planty-meet-hero,
+.planty-meet-hero * {
+    box-sizing: border-box;
+}
+
+/* Groupe principal de la présentation. */
+.planty-meet-hero {
+    /* Servir de repère pour positionner la fleur décorative. */
+    position: relative;
+
+    /* Garder les superpositions indépendantes des autres sections. */
+    isolation: isolate;
+
+    /* Prévoir l'espace au-dessus et en dessous du contenu,
+       avec une marge intérieure sur les côtés. */
+    padding: 180px 20px 80px;
+
+    /* Reprendre le fond beige de la maquette. */
+    background-color: #ece2da;
+
+    /* Utiliser Syne et centrer le texte. */
+    font-family: "Syne", Arial, sans-serif;
+    text-align: center;
+
+    /* Former une courbe au bas de la section. */
+    border-radius: 0 0 50% 50% / 0 0 10% 10%;
+}
+
+/* Bloc Image contenant la fleur. */
+.planty-meet-hero .planty-meet-flower {
+    /* Placer la décoration sans déplacer le texte. */
+    position: absolute;
+    top: 60px;
+
+    /* La positionner à gauche du titre sur ordinateur.
+       Conserver au moins 20 px entre son bloc et le bord. */
+    left: max(20px, calc(50% - 560px));
+
+    /* Définir la taille du fichier, transparence comprise. */
+    width: 200px;
+    max-width: 200px;
+
+    /* Retirer les marges automatiques de Gutenberg,
+       elles-mêmes déclarées avec !important. */
+    margin: 0 !important;
+
+    /* Placer la décoration derrière le contenu textuel. */
+    z-index: 0;
+}
+
+/* Fichier image de la fleur. */
+.planty-meet-flower img {
+    /* Supprimer l'espace sous les images en ligne. */
+    display: block;
+
+    /* Adapter l'image au bloc sans la déformer. */
+    width: 100%;
+    height: auto;
+}
+
+/* Titre principal de la page. */
+.planty-meet-hero h1 {
+    /* Garantir que le titre reste devant la décoration. */
+    position: relative;
+    z-index: 1;
+
+    /* Limiter sa largeur et le centrer.
+       Laisser un espace de 30 px avant le paragraphe. */
+    max-width: 850px;
+    margin: 0 auto 30px;
+
+    /* Appliquer le saumon et la graisse forte de la maquette. */
+    color: #d2776a;
+    font-family: inherit;
+    font-weight: 800;
+
+    /* Faire varier la taille entre 28 et 38 px,
+       avec une taille de base du navigateur de 16 px. */
+    font-size: clamp(1.75rem, 3vw, 2.375rem);
+
+    /* Régler l'interligne et afficher les majuscules. */
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    /* Éviter le débordement d'un mot sur un petit écran. */
+    overflow-wrap: break-word;
+}
+
+/* Paragraphe présentant Planty. */
+.planty-meet-hero .planty-meet-description {
+    /* Garder le texte devant la décoration. */
+    position: relative;
+    z-index: 1;
+
+    /* Limiter la longueur des lignes et centrer le paragraphe. */
+    max-width: 700px;
+    margin: 0 auto;
+
+    /* Définir la couleur, la taille et l'interligne du texte. */
+    color: #000000;
+    font-size: 1.25rem;
+    line-height: 1.3;
+
+    /* Autoriser la coupure d'un mot exceptionnellement long. */
+    overflow-wrap: break-word;
+}
+
+/* ==================================================
+   PRÉSENTATION — TABLETTES ET TÉLÉPHONES
+   ================================================== */
+
+@media (max-width: 1000px) {
+    .planty-meet-hero {
+        /* Réduire les espaces sur les petits écrans. */
+        padding: 48px 20px 56px;
+    }
+
+    .planty-meet-hero .planty-meet-flower {
+        /* Réintégrer la fleur dans le flux :
+           elle apparaît au-dessus du titre sans le chevaucher. */
+        position: static;
+
+        /* Réduire la taille de la décoration. */
+        width: 100px;
+
+        /* Centrer la fleur et l'espacer du titre.
+           Remplacer également la marge importante définie plus haut. */
+        margin: 0 auto 24px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .planty-meet-hero h1 {
+        /* Rapprocher le titre de son paragraphe. */
+        margin-bottom: 24px;
+    }
+
+    .planty-meet-hero .planty-meet-description {
+        /* Adapter la taille et l'interligne pour la lecture sur téléphone. */
+        font-size: 1.125rem;
+        line-height: 1.5;
+    }
+}
+
+/* ==================================================
+   NOUS RENCONTRER — L'ÉQUIPE
+   ================================================== */
+
+/* Inclure les espacements et bordures dans les dimensions
+   de tous les éléments de cette section. */
+.planty-team,
+.planty-team * {
+    box-sizing: border-box;
+}
+
+/* Section présentant les trois membres de l'équipe. */
+.planty-team {
+    /* Servir de repère au feuillage décoratif. */
+    position: relative;
+
+    /* Limiter les superpositions à cette section. */
+    isolation: isolate;
+
+    /* Définir les espaces autour du contenu. */
+    padding: 70px 20px 80px;
+
+    /* Utiliser le fond blanc et la police du site. */
+    background-color: #ffffff;
+    font-family: "Syne", Arial, sans-serif;
+
+    /* Centrer les titres, les portraits et les fonctions. */
+    text-align: center;
+}
+
+/* Titre « L'équipe ». */
+.planty-team h2 {
+    /* Centrer le titre et l'espacer des portraits. */
+    margin: 0 auto 48px;
+
+    /* Appliquer la typographie de la section. */
+    color: #000000;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Groupe réunissant les trois membres. */
+.planty-team .planty-team-grid {
+    /* Garder les portraits et leurs textes devant le feuillage. */
+    position: relative;
+    z-index: 1;
+
+    /* Limiter la largeur de l'ensemble et le centrer. */
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+/* Conteneur intermédiaire ajouté par Gutenberg. */
+.planty-team-grid > .wp-block-group__inner-container {
+    /* Créer trois colonnes égales pouvant rétrécir. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* Espacer les membres de l'équipe. */
+    gap: 32px;
+}
+
+/* Groupe contenant un portrait, un nom et une fonction. */
+.planty-team .planty-team-member {
+    /* Autoriser le contenu à rétrécir dans sa colonne. */
+    min-width: 0;
+
+    /* Retirer les marges automatiques de Gutenberg,
+       elles-mêmes déclarées avec !important. */
+    margin: 0 !important;
+}
+
+/* Bloc Image contenant un portrait. */
+.planty-team .planty-team-photo {
+    /* Définir un portrait carré de 166 px maximum. */
+    width: 166px;
+    max-width: 100%;
+    aspect-ratio: 1;
+
+    /* Centrer le portrait et neutraliser les marges de Gutenberg. */
+    margin: 0 auto !important;
+}
+
+/* Fichier image du portrait. */
+.planty-team-photo img {
+    /* Supprimer l'espace sous les images en ligne. */
+    display: block;
+
+    /* Remplir le carré défini par le bloc Image. */
+    width: 100%;
+    height: 100%;
+
+    /* Recadrer sans déformer la personne et centrer le cadrage. */
+    object-fit: cover;
+    object-position: center;
+
+    /* Donner au portrait une forme ronde. */
+    border-radius: 50%;
+}
+
+/* Prénom du membre de l'équipe. */
+.planty-team-member h3 {
+    /* Espacer le nom du portrait puis de la fonction. */
+    margin: 16px 0 8px;
+
+    /* Définir la couleur, la taille et la graisse du nom. */
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Fonction du membre : CEO, Nutritionniste ou Mixologue. */
+.planty-team-member p {
+    /* Retirer les marges par défaut du paragraphe. */
+    margin: 0;
+
+    /* Définir la typographie de la fonction. */
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* Bloc Image contenant le feuillage décoratif. */
+.planty-team .planty-team-leaf {
+    /* Placer le feuillage au bas de la section. */
+    position: absolute;
+    bottom: 0;
+
+    /* Le positionner à droite tout en conservant
+       une marge minimale sur les écrans moins larges. */
+    right: max(20px, calc(50% - 650px));
+
+    /* Définir sa taille, transparence comprise. */
+    width: 180px;
+    max-width: 180px;
+
+    /* Neutraliser les marges automatiques de Gutenberg. */
+    margin: 0 !important;
+
+    /* Conserver la décoration derrière les membres de l'équipe. */
+    z-index: 0;
+}
+
+/* Fichier image du feuillage. */
+.planty-team-leaf img {
+    /* Supprimer l'espace sous l'image. */
+    display: block;
+
+    /* Adapter l'image à son bloc sans la déformer. */
+    width: 100%;
+    height: auto;
+}
+
+/* ==================================================
+   L'ÉQUIPE — TABLETTES ET TÉLÉPHONES
+   ================================================== */
+
+@media (max-width: 900px) {
+    .planty-team {
+        /* Réduire l'espace supérieur et réserver une zone
+           sous les membres pour la décoration. */
+        padding: 48px 20px 130px;
+    }
+
+    .planty-team h2 {
+        /* Rapprocher le titre du premier portrait. */
+        margin-bottom: 32px;
+    }
+
+    .planty-team-grid > .wp-block-group__inner-container {
+        /* Afficher les membres sur une seule colonne. */
+        grid-template-columns: minmax(0, 1fr);
+
+        /* Espacer les trois présentations. */
+        gap: 40px;
+    }
+
+    .planty-team .planty-team-leaf {
+        /* Réduire la décoration et la conserver en bas à droite,
+           dans l'espace réservé par le padding de la section. */
+        width: 100px;
+        right: 20px;
+    }
+}
+
+/* ==================================================
+   NOUS RENCONTRER - FORMULAIRE DE CONTACT
+   ================================================== */
+
+/* Inclure les espacements et bordures dans les dimensions de la section. */
+.planty-contact,
+.planty-contact * {
+    box-sizing: border-box;
+}
+
+.planty-contact {
+    /* Définir l'espace autour du titre et du formulaire. */
+    padding: 70px 20px 80px;
+
+    /* Prolonger le beige jusqu'à la frise du footer. */
+    background-color: #ece2da;
+    font-family: "Syne", Arial, sans-serif;
+
+    /* Recadrer volontairement la décoration qui dépasse sur téléphone,
+       afin qu'elle ne crée pas de défilement horizontal. */
+    overflow: hidden;
+}
+
+.planty-contact h2 {
+    /* Centrer le titre et l'espacer du formulaire. */
+    margin: 0 auto 40px;
+    text-align: center;
+
+    /* Reprendre la typographie du titre dans la maquette. */
+    color: #000000;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.planty-contact .planty-contact-body {
+    /* Servir de repère à la décoration et isoler les superpositions. */
+    position: relative;
+    isolation: isolate;
+
+    /* Limiter le formulaire à 383 px et le centrer dans la section. */
+    width: 100%;
+    max-width: 383px;
+    margin: 0 auto;
+}
+
+.planty-contact .planty-contact-decoration {
+    /* Positionner les feuilles derrière le bas du champ Message. */
+    position: absolute;
+    left: -75px;
+    bottom: 110px;
+    z-index: 0;
+
+    /* Définir la taille de l'image, transparence comprise. */
+    width: 150px;
+    max-width: 150px;
+
+    /* Neutraliser les marges de Gutenberg et laisser les champs cliquables. */
+    margin: 0 !important;
+    pointer-events: none;
+}
+
+.planty-contact-decoration img {
+    /* Adapter la décoration à son bloc sans déformation. */
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.planty-contact .wpcf7 {
+    /* Conserver les champs devant la décoration. */
+    position: relative;
+    z-index: 1;
+
+    /* Remplir la largeur du groupe sans ajouter de marge. */
+    width: 100%;
+    margin: 0;
+}
+
+.planty-contact .wpcf7-form {
+    /* Retirer les marges éventuelles du formulaire. */
+    margin: 0;
+}
+
+.planty-contact .planty-contact-field {
+    /* Espacer les ensembles libellé + champ. */
+    margin: 0 0 22px;
+}
+
+.planty-contact-field label {
+    /* Placer le libellé au-dessus du champ et l'espacer de celui-ci. */
+    display: block;
+    margin-bottom: 10px;
+
+    /* Définir la taille, la couleur et l'alignement du libellé. */
+    color: #000000;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.planty-contact-field br,
+.planty-contact-submit br {
+    /* Neutraliser les sauts de ligne HTML que CF7 peut ajouter.
+       Les espacements sont déjà définis sur les blocs et les libellés. */
+    display: none;
+}
+
+.planty-contact .wpcf7-form-control-wrap {
+    /* Laisser chaque champ et son message d'erreur occuper toute la largeur. */
+    display: block;
+    width: 100%;
+}
+
+.planty-contact input[type="text"],
+.planty-contact input[type="email"],
+.planty-contact textarea {
+    /* Remplir le conteneur sans dépasser sur mobile. */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    /* Définir le fond, la bordure et l'arrondi des champs. */
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    /* Donner de l'espace au texte et appliquer la police du site. */
+    padding: 18px 20px;
+    font-family: inherit;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+.planty-contact input[type="text"],
+.planty-contact input[type="email"] {
+    /* Approcher la hauteur des champs Nom et E-mail dans la maquette. */
+    min-height: 71px;
+}
+
+.planty-contact textarea {
+    /* Définir la hauteur initiale du champ Message. */
+    height: 237px;
+    min-height: 180px;
+
+    /* Autoriser son agrandissement vertical par la personne qui écrit. */
+    resize: vertical;
+}
+
+.planty-contact input:focus-visible,
+.planty-contact textarea:focus-visible {
+    /* Signaler le champ actif sans supprimer le repère de navigation au clavier. */
+    outline: 3px solid #245c2b;
+    outline-offset: 3px;
+}
+
+.planty-contact .planty-contact-submit {
+    /* Centrer le bouton et servir de repère à l'indicateur d'envoi. */
+    position: relative;
+    margin: 24px 0 0;
+    text-align: center;
+}
+
+.planty-contact input[type="submit"] {
+    /* Définir une zone cliquable de 198 px sur 56 px minimum. */
+    width: 198px;
+    max-width: 100%;
+    min-height: 56px;
+    padding: 16px 24px;
+
+    /* Reprendre le bouton rose du site. */
+    background-color: #e0b9b4;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+
+    /* Définir la police et indiquer que le bouton est cliquable. */
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.planty-contact input[type="submit"]:hover {
+    /* Signaler le survol comme sur les autres boutons du site. */
+    background-color: #c02e44;
+}
+
+.planty-contact input[type="submit"]:focus-visible {
+    /* Rendre le bouton repérable au clavier. */
+    outline: 3px solid #245c2b;
+    outline-offset: 4px;
+}
+
+.planty-contact .wpcf7-spinner {
+    /* Conserver l'indicateur d'envoi sans décentrer le bouton. */
+    position: absolute;
+    top: 16px;
+    left: calc(50% + 110px);
+    margin: 0;
+}
+
+.planty-contact .wpcf7-not-valid {
+    /* Marquer les champs invalides sans se reposer uniquement sur cette couleur :
+       Contact Form 7 affiche aussi un message d'erreur textuel. */
+    border-color: #b42318;
+}
+
+.planty-contact .wpcf7-not-valid-tip {
+    /* Garder les erreurs lisibles sous chaque champ. */
+    display: block;
+    margin-top: 8px;
+    color: #b42318;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.planty-contact .wpcf7 .wpcf7-response-output {
+    /* Conserver le message global d'échec ou de réussite, sans le masquer. */
+    margin: 24px 0 0;
+    padding: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* ==================================================
+   CONTACT — ADAPTATION MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+    .planty-contact {
+        /* Réduire les espacements autour du formulaire. */
+        padding: 48px 20px 64px;
+    }
+
+    .planty-contact h2 {
+        /* Rapprocher le titre du premier champ. */
+        margin-bottom: 32px;
+    }
+
+    .planty-contact .planty-contact-decoration {
+        /* Réduire la décoration et limiter son dépassement à gauche. */
+        width: 110px;
+        left: -35px;
+    }
+}
