@@ -1385,7 +1385,7 @@ body {
     /* Positionner les feuilles derrière le bas du champ Message. */
     position: absolute;
     left: -75px;
-    bottom: 110px;
+    bottom: 40px;
     z-index: 0;
 
     /* Définir la taille de l'image, transparence comprise. */
@@ -1580,5 +1580,392 @@ body {
         /* Réduire la décoration et limiter son dépassement à gauche. */
         width: 110px;
         left: -35px;
+    }
+}
+
+/* ==================================================
+       
+                 PAGE COMMANDER
+
+   ================================================== */
+
+/* Inclure les bordures et espacements dans toutes les dimensions. */
+.planty-order,
+.planty-order * {
+    box-sizing: border-box;
+}
+
+.planty-order {
+    /* Définir le fond vert et l'espace autour du contenu. */
+    background-color: #3b8e46;
+    padding: 64px 20px 90px;
+
+    /* Utiliser la police du site et le texte blanc de la maquette. */
+    font-family: "Syne", Arial, sans-serif;
+    color: #ffffff;
+}
+
+.planty-order h1 {
+    /* Centrer le titre principal et l'espacer de la commande. */
+    max-width: 860px;
+    margin: 0 auto 60px;
+    text-align: center;
+
+    /* Adapter la taille et reprendre les majuscules de la maquette. */
+    font-size: clamp(1.25rem, 5vw, 2.375rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    /* Éviter un débordement si le texte est agrandi dans le navigateur. */
+    overflow-wrap: break-word;
+}
+
+.planty-order .planty-order-content {
+    /* Limiter et centrer l'ensemble cartes + formulaire. */
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.planty-order-content h2 {
+    /* Dessiner la séparation supérieure et espacer le titre des cartes. */
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+    padding-top: 36px;
+    margin: 0 0 36px;
+
+    /* Définir la typographie du titre Votre commande. */
+    color: #ffffff;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.planty-order .planty-order-products {
+    /* Prévoir un petit espace avant les quantités du formulaire. */
+    margin: 0 0 16px;
+}
+
+.planty-order-products > .wp-block-group__inner-container {
+    /* Disposer les quatre bannières sur une ligne. */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.planty-order .planty-order-card {
+    /* Permettre aux cartes de rétrécir et retirer les marges de Gutenberg. */
+    min-width: 0;
+    width: 100%;
+    margin: 0 !important;
+
+    /* Conserver le ratio des photos sans hauteur minimale imposée par Gutenberg. */
+    min-height: 0 !important;
+    aspect-ratio: 393 / 263;
+    padding: 8px;
+}
+
+.planty-order-card .wp-block-cover__image-background {
+    /* Remplir chaque carte sans déformer la photo. */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.planty-order-card h3 {
+    /* Centrer les noms des saveurs, y compris ceux sur deux lignes. */
+    margin: 0;
+    text-align: center;
+
+    /* Reprendre la typographie blanche des cartes. */
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.planty-order .wpcf7,
+.planty-order .wpcf7-form {
+    /* Utiliser toute la largeur du groupe qui limite déjà le contenu à 860 px. */
+    width: 100%;
+    margin: 0;
+}
+
+.planty-order .wpcf7-form br {
+    /* Neutraliser les sauts de ligne automatiques de CF7 :
+       les espacements sont définis par les groupes et les paragraphes. */
+    display: none;
+}
+
+.planty-order-mobile-help {
+    /* Sur ordinateur, les quantités sont directement sous leurs images. */
+    display: none;
+}
+
+.planty-order-quantities {
+    /* Aligner chaque quantité sur la colonne de sa saveur. */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.planty-order .planty-order-quantity {
+    /* Retirer les marges des paragraphes et centrer les quantités. */
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.planty-order-quantity-label {
+    /* Conserver un vrai libellé pour les lecteurs d'écran,
+       sans le répéter visuellement sous la carte sur ordinateur. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.planty-order input[type="number"] {
+    /* Définir les petits champs blancs et centrer leur contenu. */
+    width: 48px;
+    min-height: 56px;
+    padding: 8px 2px;
+    border: 1px solid transparent;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.planty-order-details {
+    /* Créer les deux colonnes d'informations et la séparation supérieure. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 36px;
+    padding-top: 54px;
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.planty-order-details > fieldset {
+    /* Retirer le cadre par défaut tout en conservant les groupes accessibles. */
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.planty-order-details > fieldset:first-child {
+    /* Dessiner la séparation verticale et espacer la colonne de gauche. */
+    padding-right: 44px;
+    border-right: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.planty-order-details > fieldset + fieldset {
+    /* Espacer la colonne de livraison de la séparation centrale. */
+    padding-left: 44px;
+}
+
+.planty-order-details legend {
+    /* Définir les titres Vos informations et Livraison. */
+    width: 100%;
+    padding: 0;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.planty-order .planty-order-field {
+    /* Espacer les champs et retirer les marges par défaut. */
+    margin: 0 0 24px;
+}
+
+.planty-order .planty-order-field:last-child {
+    /* Aligner le bas des deux colonnes sans marge supplémentaire. */
+    margin-bottom: 0;
+}
+
+.planty-order-field label {
+    /* Placer les libellés au-dessus des champs. */
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.planty-order-field .wpcf7-form-control-wrap {
+    /* Donner au champ et à son éventuelle erreur toute la largeur disponible. */
+    display: block;
+    width: 100%;
+}
+
+.planty-order input[type="text"],
+.planty-order input[type="email"] {
+    /* Remplir les colonnes sans débordement. */
+    width: 100%;
+    max-width: 100%;
+    min-height: 71px;
+    padding: 18px 20px;
+
+    /* Reprendre les champs blancs arrondis de la maquette. */
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+.planty-order .planty-order-submit {
+    /* Centrer le bouton et servir de repère à l'indicateur d'envoi. */
+    position: relative;
+    margin: 44px 0 0;
+    text-align: center;
+}
+
+.planty-order input[type="submit"] {
+    /* Définir une zone cliquable confortable et le style rose du site. */
+    width: 198px;
+    max-width: 100%;
+    min-height: 56px;
+    padding: 16px 24px;
+    background-color: #e0b9b4;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.planty-order input[type="submit"]:hover {
+    /* Signaler le survol du bouton. */
+    background-color: #c02e44;
+}
+
+.planty-order input:focus-visible {
+    /* Garder un repère visible au clavier sur fond vert et dans les champs blancs. */
+    outline: 3px solid #111111;
+    outline-offset: 3px;
+}
+
+.planty-order .wpcf7-spinner {
+    /* Conserver l'indicateur d'envoi sans décentrer le bouton. */
+    position: absolute;
+    top: 16px;
+    left: calc(50% + 110px);
+    margin: 0;
+}
+
+.planty-order .wpcf7-not-valid {
+    /* Souligner les champs invalides avec une bordure. */
+    border-color: #b42318;
+}
+
+.planty-order .wpcf7-not-valid-tip {
+    /* Afficher les erreurs en texte, avec un fond blanc pour leur lisibilité. */
+    display: block;
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #ffffff;
+    color: #9f1239;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.planty-order .wpcf7 .wpcf7-response-output {
+    /* Conserver les messages de résultat de l'extension. */
+    margin: 24px 0 0;
+    padding: 12px;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.5;
+}
+
+/* ==================================================
+   COMMANDE — ADAPTATION AUX PETITS ÉCRANS
+   ================================================== */
+
+@media (max-width: 760px) {
+    .planty-order {
+        /* Réduire les espaces autour de la page. */
+        padding: 40px 20px 56px;
+    }
+
+    .planty-order h1 {
+        /* Rapprocher le titre du contenu sur téléphone. */
+        margin-bottom: 36px;
+    }
+
+    .planty-order-products > .wp-block-group__inner-container,
+    .planty-order-quantities {
+        /* Utiliser deux colonnes avec des textes et champs suffisamment larges. */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .planty-order-card h3 {
+        /* Réduire légèrement les noms dans les cartes. */
+        font-size: 1rem;
+    }
+
+    .planty-order-mobile-help {
+        /* Expliquer la saisie lorsque les cartes et quantités occupent deux rangées. */
+        display: block;
+        margin: 24px 0;
+        line-height: 1.5;
+    }
+
+    .planty-order-quantity-label {
+        /* Afficher le nom de chaque quantité sur téléphone
+           pour éviter toute ambiguïté avec les images situées au-dessus. */
+        display: block;
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0 0 10px;
+        /* Réserver deux lignes pour aligner les champs malgré les noms longs. */
+        min-height: 2.8em;
+        overflow: visible;
+        clip-path: none;
+        white-space: normal;
+        line-height: 1.4;
+    }
+
+    .planty-order-details {
+        /* Empiler les coordonnées et la livraison sur les petits écrans. */
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 36px;
+    }
+
+    .planty-order-details > fieldset:first-child {
+        /* Retirer la séparation verticale devenue inutile. */
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .planty-order-details > fieldset + fieldset {
+        /* Séparer les deux ensembles par un espace et une ligne horizontale. */
+        padding: 36px 0 0;
+        margin-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .planty-order-details legend {
+        /* Garder des titres lisibles sans débordement sur 320 px. */
+        font-size: 1.625rem;
     }
 }
