@@ -147,3 +147,6 @@ function planty_show_footer_frieze() {
        sur l'accueil ou sur la page supplémentaire configurée. */
     return $image_id > 0 && ( is_front_page() || planty_is_frieze_secondary_page() );
 }
+
+/* Charger les contrôles serveur de la précommande. */
+require_once __DIR__ . '/validation-precommande.php';
